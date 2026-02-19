@@ -1,11 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
+    <meta name="description" content="генратор, калькулятор sgtin бесплатно индивидуализация Контрольных идентификационных знаков (КИЗ) мех">
+    <meta name="keywords" content="индивидуализация киз маркировка шуб меха, сжтин, sgtin калькулятор, sgtin генератор, sgtin для меха, sgtin для шуб">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="icon" href="static/img/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>SGTIN-96 Меховые изделия</title>
 </head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(98189182, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/98189182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <body>
-    Hello, World!
+<header>
+    <h1>Sgtin генератор (калькулятор) - это программа для вычисления SGTIN96 ключа, необходимого для индивидуализации контрольного идентификационного знака (КИЗ), выданного госзнаком для маркировки мехового изделия</h1>
+    <div class="sgtingenerator" id="sgtingenerator">
+        <p>
+            Чтобы сгенерировать ключ sgtin96 требуется ввести в соответствующие поля GTIN <span style="color: green;">46ХХХХХХХХХХХ</span> и TID (серийный номер КИЗ) <span style="color: green;">E2003ХХХХХХХХХХХХХХ</span>, который находится в расширенной информации КИЗ в разделе коды маркировок в личном кабинете Честный знак
+        </p>
+
+        <input type="number" name="gtin" id="gtin" placeholder="GTIN_" required> 
+        <input type="text" name="tid" id="tid" placeholder="TID_" required> 
+        <button id="submit" onclick="getSGTIN()" type="submit">Получить sgtin 🤝</button>
+        <div id="result">
+
+        </div>
+        <menu>
+            <ul id="menu"></ul>
+        </menu>
+    </div>
+</header>
+<section id="content">
+    <div class="text">
+        <p>Сервис предоставляет возможность сгенерировать sgtin</p>
+        <p>Вы можете угостить автора кофе через сервис "ТБанк Сбор" по этой <a href="https://www.tbank.ru/cf/8Xja0LfepOG" target="_blank" rel="noopener noreferrer" style="color: green; text-decoration: underline;">ССЫЛКЕ</a></p>
+        <p>
+            По всем вопросам писать на почту 
+            <a style="color: #228BE6;" href="mailto:artemkyzo@yandex.ru?subject=SGTINGENERATOR" target="_blank" rel="noopener noreferrer">artemkyzo@yandex.ru</a> 
+            с указанием темы письма чтобы ваше письмо не попало в спам фильтр почтового ящика.
+        </p>
+        <p>
+            Автор не несёт ответственности за ошибочно предоставленные данные такие как GTIN, TID, т.д.
+        </p>
+        <p>
+            Данный сайт использует Яндекс метрику для сбора статистики посещений и действий на сайте.
+        </p>
+        <p>
+            Нажимая кнопку "Получить sgtin", вы соглашаетесь со всеми условиями и правилами сервиса.
+        </p>
+        <details>
+            <summary>Часто задаваемые вопросы</summary>
+            <h2>Где получить SGTIN96 для индивидуализации (маркировки) шубы?</h2>
+            <p>SGTINGENERATOR - программа, вычисляющая SGTIN96 путём преобразования gtin и tid кодов по особому алгоритму</p>
+            <h3>Как получить SGTIN96 для индивидуализации (маркировки) шуб?</h2>
+            <p>Следуйте 4 простым шагам чтобы получить SGTIN96</p>     
+            <h4>Что такое SGTIN96?</h3>
+            <p>SGTIN96 - это уникальный ключ для каждой шубы, состоящий из последовательности нулей и единиц, обозначающий единственную в своём роде единицу</p>        
+            <h5>Какое оборудование нужно для индивидуализации (маркировки) меховых изделий?</h4>
+            <p>Согласно постановлению правительства РФ, участник маркировки, который заказывает неиндивидуализированные КИЗ у ГОЗНАКа, обязан самостоятельно вносить SGTIN96 в RFID-метку, которая находится в КИЗе. Для этого потребуется оборудование, которое поддерживает запись в RFID-метку диапазона UHF (860—960 МГц)</p>        
+            <h6>Как из SGTIN96 получить КИЗ?</h6>
+            <p>Номер киз не участвует в процессе формирования SGTIN96. Поэтому вычислить номер киз, который присвоил ГОЗНАК - напрямую нельзя</p>        
+            <h6>Как связаться с автором?</h6>
+            <p>Отправьте электронное письмо на <a style="color: #228BE6;" href="mailto:artemkyzo@yandex.ru?subject=SGTINGENERATOR" target="_blank" rel="noopener noreferrer">artemkyzo@yandex.ru</a></p>        
+        </details>
+    </div>
+</section>
+
+<script>
+    async function getSGTIN() {
+    var gtin = document.getElementById("gtin")
+    var tid = document.getElementById("tid")
+    var tmp = '00110000001011'
+    gcp = (parseInt(gtin.value.slice(0, 9))).toString(2).padStart(30, '0')
+    console.log(gcp) 
+    link = (parseInt(gtin.value.slice(9, 12))).toString(2).padStart(14, '0')
+    console.log(link)
+    tid_man_user = tid.value.slice(0, 8)
+    tid_man_ex = ['E200680A', 'E200680B', 'E2806D12', 'E2806D92', 'E2003414', 'E2003412']
+    if (!tid_man_ex.includes(tid_man_user)) {
+        console.log('dfgdfgd')
+        const submit = document.getElementById('submit')
+        submit.remove()
+        const menu = document.getElementById('menu')
+
+        const sgtin = document.createElement('p')
+        sgtin.setAttribute("id", "sgtin")
+        sgtin.style.textAlign = 'center'
+        sgtin.style.fontSize = '15px'
+        sgtin.style.fontWeight = '500'
+        sgtin.style.paddingBottom = '4px'
+        sgtin.style.color = 'brown'
+        sgtin.innerHTML = 'неизвестный TID, свяжитесь с автором'
+        document.getElementById('result').appendChild(sgtin)
+        
+        var li = document.createElement('li')
+        li.style.textAlign = 'center'
+        const email = document.createElement('a')                    
+        email.href = 'mailto:artemkyzo@yandex.ru?subject=sgtingenerator. '+sgtin.textContent + '&body=TID: ' +tid.value + ' GTIN: ' + gtin.value 
+        email.setAttribute('id', 'contact')
+        email.innerText = 'Отправить письмо об ошибке'
+        li.appendChild(email)
+        li.style.paddingBottom = '4px'
+        menu.appendChild(li)
+
+        var li = document.createElement('li')
+        li.style.textAlign = 'center'
+        const a2 = document.createElement('a')
+        a2.href = "/"
+        a2.innerText = "Попробовать ещё раз"
+        li.appendChild(a2)
+        li.style.paddingBottom = '4px'
+        menu.appendChild(li)                
+    }
+
+    else if (['E200680A', 'E200680B', 'E2806D12', 'E2806D92'].includes(tid_man_user)) {
+        var prefix = '111'
+    }
+
+    else if (['E2003414', 'E2003412'].includes(tid_man_user)) {
+        var prefix = '110'
+    }
+
+    var tid_serial = prefix + hexStringToBinary(tid.value).toString()
+    var bin_sgtin = tmp + gcp + link + tid_serial
+
+    const submit = document.getElementById('submit')
+    submit.remove() 
+
+    const sgtin = document.createElement('textarea')
+    sgtin.readOnly = 'true'
+    sgtin.setAttribute("id", "sgtin")
+    sgtin.style.resize = 'none'
+    sgtin.style.width = '100%'
+    sgtin.style.fontWeight = '400'
+    sgtin.innerHTML = bin_sgtin
+    document.getElementById('result').appendChild(sgtin)
+
+    var btnCopy = document.createElement('button')
+    btnCopy.innerHTML = "Скопировать"
+    btnCopy.style.fontSize = '15px'
+    btnCopy.style.cursor = 'pointer'
+    btnCopy.style.backgroundColor = 'white'
+    btnCopy.style.border = 0
+    btnCopy.style.width = '100%'
+    btnCopy.style.fontWeight = '500'
+    btnCopy.style.margin = '0 auto'
+    btnCopy.setAttribute("id", "copy")
+    btnCopy.style.paddingBottom = '4px'
+    document.getElementById('menu').appendChild(btnCopy)
+    document.getElementById("copy").onclick = function() {
+                                                document.getElementById("sgtin").select()
+                                                document.execCommand("copy")
+                                            }   
+
+    
+    const menu = document.getElementById('menu')
+    var li = document.createElement('li')
+    li.style.textAlign = 'center'
+    const url_home = document.createElement('a')
+    url_home.href = "/"
+    url_home.innerText = "Хочу ещё один"
+    li.appendChild(url_home)
+    li.style.paddingBottom = '4px'
+    menu.appendChild(li)
+
+    var li = document.createElement('li')
+    li.style.textAlign = 'center'
+    const email = document.createElement('a')
+    email.href = 'mailto:artemkyzo@yandex.ru?subject=sgtingenerator'
+    email.setAttribute('id', 'contact')
+    email.innerText = 'Написать электронное письмо'
+    li.appendChild(email)
+    li.style.paddingBottom = '4px'
+    menu.appendChild(li)
+
+}
+
+function hexStringToBinary(hex) {
+    let binary = "";
+    for (let i = 0; i < hex.length; i += 2) {
+        const byte = hex.substr(i, 2); // Get two hex characters
+        const decimal = parseInt(byte, 16); // Convert to decimal
+        const bin = decimal.toString(2).padStart(8, '0'); // Convert to binary and pad to 8 bits
+        binary += bin;
+    }
+    return binary.slice(61, 96);
+}    
+</script>
 </body>
 </html>
